@@ -1,5 +1,5 @@
 # ComfyUI_OmniSVG
-OmniSVG: A Unified Scalable Vector Graphics Generation Model,you  can try it in ComfyUI.
+[OmniSVG](https://github.com/OmniSVG/OmniSVG): A Unified Scalable Vector Graphics Generation Model,you  can try it in ComfyUI.
 
 
 # Tips
