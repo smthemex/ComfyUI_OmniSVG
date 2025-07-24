@@ -2,13 +2,24 @@
 [OmniSVG](https://github.com/OmniSVG/OmniSVG): A Unified Scalable Vector Graphics Generation Model,you  can try it in ComfyUI.
 
 
-# Tips
-* Will coming soon. 虽然能出图，但是泛化性一般，官方好像也说这事，可能还得等7B模型
-  
+# 1 . Installation /安装
+
+In the ./ComfyUI /custom_node directory, run the following:   
+```
+git clone https://github.com/smthemex/ComfyUI_OmniSVG.git
+```
+---
+
+# 2 . Requirements  
+* if windows ,cairo is difficult to install . use [links](https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer/releases/download/2022-01-04/gtk3-runtime-3.24.31-2022-01-04-ts-win64.exe)   install / 如果cairo安装不上，用连接的exe安装
+
+```
+pip install -r requirements.txt
+```
 
 # Example
-* ![](https://github.com/smthemex/ComfyUI_OmniSVG/blob/main/example.png)
-* ![](https://github.com/smthemex/ComfyUI_OmniSVG/blob/main/example_.png)
+* ![](https://github.com/smthemex/ComfyUI_OmniSVG/blob/main/example_workflows/example.png)
+* ![](https://github.com/smthemex/ComfyUI_OmniSVG/blob/main/example_workflows/example_.png)
 
 
 # Citation
