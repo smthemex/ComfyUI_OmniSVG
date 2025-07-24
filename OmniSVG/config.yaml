@@ -1,0 +1,35 @@
+tokens:
+  num_mask_and_eom: 151938 
+  mask: 151937  
+  eom: 151938  
+  num_end_token: 5
+  causal_pad: 3
+  svg_end: 1
+  base_offset: 151936
+
+coordinates:
+  bbox: 200
+  pix_pad_offset: 151943 
+  coord_pad_offset: 151943  
+
+colors:
+  cmd_fill: 40007
+  color_token_start: 40007
+  max_color_tokens: 4098
+  color_start_offset: 191944 
+  color_end_offset: 196041  
+  default_color_token: 40007  
+
+svg_commands:
+  move: -5
+  line: -4
+  curve: -3
+  arc: -2
+  close: -1
+  
+model:
+  bos_token_id: 151643
+  eos_token_id: 196041
+  pad_token_id: 151643
+  max_length: 1537
+  

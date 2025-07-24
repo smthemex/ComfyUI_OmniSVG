@@ -1,0 +1,17 @@
+#gradio==5.37.0
+transformers>=4.51.3
+#numpy==2.2.6
+# Pillow==10.1.0
+CairoSVG==2.7.1; sys_platform != 'win32'
+# einops==0.4.1
+qwen-vl-utils
+# ConfigArgParse==1.7.1
+# PyYAML==6.0.2
+# typing-inspection==0.4.0
+# typing_extensions==4.12.2
+# ipython==8.12.3
+moviepy
+# shapely==2.0.7
+torch
+torchvision
+pycairo
