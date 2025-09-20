@@ -56,7 +56,7 @@ def load_models(sketch_weight_file,node_path,qwen_repo="Qwen/Qwen2.5-VL-3B-Instr
     
     print(f"Loading weights from: {sketch_weight_file}")
     sketch_dict=torch.load(sketch_weight_file,weights_only=False)
-    sketch_decoder.load_state_dict(sketch_dict)
+    sketch_decoder.load_state_dict(sketch_dict,strict= False)
     sketch_decoder = sketch_decoder.to(device).eval()
     del sketch_dict
     gc.collect()
