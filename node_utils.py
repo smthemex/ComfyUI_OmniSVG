@@ -6,12 +6,23 @@ from PIL import Image
 import numpy as np
 import cv2
 import gc
+import random
 
 from comfy.utils import common_upscale,ProgressBar
 from huggingface_hub import hf_hub_download
 
 cur_path = os.path.dirname(os.path.abspath(__file__))
 device = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
+
+def set_seed(seed: int = 42):
+    random.seed(seed)  
+    np.random.seed(seed) 
+    torch.manual_seed(seed)  
+    torch.cuda.manual_seed(seed) 
+    torch.cuda.manual_seed_all(seed) 
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+
 
 
 def gc_cleanup():
@@ -63,17 +74,26 @@ def tensor2pil_RGBA_list(image,mask,width,height):
     if len(mask.shape) == 2:
         mask = mask.unsqueeze(0)  # 从 [H,W] 变为 [1,H,W]
     if mask.shape[1] == 64: 
+        print("Input image is not a RGBA image")
         return tensor2pil_list(image,width,height) #[1,64,64]
     mask = 1.0 - mask
     if B == 1:
         upscaled_img = tensor_upscale(image, width, height)
         upscaled_mask = tensor_upscale(mask.unsqueeze(-1), width, height)  # 添加通道维度
         
-        # 转换为RGBA 
+        # 转换为RGB，使用mask将背景改为白色
         rgb = upscaled_img.squeeze(0).mul(255).clamp(0, 255).byte().numpy()
         alpha = upscaled_mask.squeeze(0).mul(255).clamp(0, 255).byte().numpy()
-        rgba = np.dstack((rgb, alpha))  # 合并为RGBA
-        ref_image_list = [Image.fromarray(rgba, mode='RGBA')]
+        
+        # 将alpha通道应用到RGB图像，背景变为白色
+        alpha_normalized = alpha.astype(np.float32) / 255.0
+        # 白色背景
+        white_bg = np.ones_like(rgb) * 255
+        # 混合图像和白色背景
+        blended = rgb * alpha_normalized + white_bg * (1 - alpha_normalized)
+        blended = blended.astype(np.uint8)
+        
+        ref_image_list = [Image.fromarray(blended, mode='RGB')]
     else:
         img_list = list(torch.chunk(image, chunks=B))
         mask_list = list(torch.chunk(mask, chunks=B))
@@ -83,11 +103,19 @@ def tensor2pil_RGBA_list(image,mask,width,height):
             upscaled_img = tensor_upscale(img, width, height)
             upscaled_mask = tensor_upscale(msk.unsqueeze(-1), width, height)
             
-            # 转换为RGBA -
+            # 转换为RGB，使用mask将背景改为白色
             rgb = upscaled_img.squeeze(0).mul(255).clamp(0, 255).byte().numpy()
             alpha = upscaled_mask.squeeze(0).mul(255).clamp(0, 255).byte().numpy()
-            rgba = np.dstack((rgb, alpha))
-            ref_image_list.append(Image.fromarray(rgba, mode='RGBA'))
+            
+            # 将alpha通道应用到RGB图像，背景变为白色
+            alpha_normalized = alpha.astype(np.float32) / 255.0
+            # 白色背景
+            white_bg = np.ones_like(rgb) * 255
+            # 混合图像和白色背景
+            blended = rgb * alpha_normalized + white_bg * (1 - alpha_normalized)
+            blended = blended.astype(np.uint8)
+            
+            ref_image_list.append(Image.fromarray(blended, mode='RGB'))
     return ref_image_list
 
 
