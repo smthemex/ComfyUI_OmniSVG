@@ -17,8 +17,8 @@ git clone https://github.com/smthemex/ComfyUI_OmniSVG.git
 
 
 # 2 . Requirements  
-* if windows ,cairo is difficult to install . use [links](https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer/releases/download/2022-01-04/gtk3-runtime-3.24.31-2022-01-04-ts-win64.exe)   install / 如果cairo安装不上，用链接的exe安装
-cairo window install guide 安装指南 
+* if windows ,cairo is difficult to install . use [links](https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer/releases/download/2022-01-04/gtk3-runtime-3.24.31-2022-01-04-ts-win64.exe)   install / 如果cairo安装不上，用链接的exe安装，或者按照安装指南安装 
+* Cairo window install guide 安装指南 [link](https://github.com/smthemex/ComfyUI_OmniSVG/blob/main/Installation_Guide.md)  
 ```
 pip install -r requirements.txt
 ```
