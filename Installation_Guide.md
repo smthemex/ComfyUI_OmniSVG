@@ -73,12 +73,14 @@ vcpkg_install_meson(
 )
 ```
   * 8.3 如果还是报错，尝试使用Clang-cl编译:
+    
 ```
 .\vcpkg install llvm --triplet x64-windows
 # 设置使用 Clang
 $env:CC = "clang"
 $env:CXX = "clang++"
 .\vcpkg install cairo --triplet x64-windows
+```
   * 8.4 还是报错，使用debug模式安装，查看log解决问题
 ```
  vcpkg install cairo --triplet x64-windows --debug
@@ -101,4 +103,5 @@ print("Cairo 测试成功！")
 
 ```
 打开CMD 运行 python test_cairo.py
+
 
