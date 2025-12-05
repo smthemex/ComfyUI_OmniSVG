@@ -1,0 +1,331 @@
+{
+  "id": "3dc298b2-9cb7-4381-bf72-73acf35d0c65",
+  "revision": 0,
+  "last_node_id": 13,
+  "last_link_id": 27,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "PreviewImage",
+      "pos": [
+        21780.739285735286,
+        -625.4727419425219
+      ],
+      "size": [
+        279.0998843565976,
+        249.28328430393378
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 16
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 8,
+      "type": "PreviewAny",
+      "pos": [
+        21774.208044271818,
+        -312.1341538616288
+      ],
+      "size": [
+        279.58131930130185,
+        156.97529958120538
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 17
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 10,
+      "type": "OmniSVG_Sampler",
+      "pos": [
+        21326.87379319232,
+        -600.8570443982086
+      ],
+      "size": [
+        394.75397437740685,
+        368
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "OmniSVG_Loader",
+          "link": 23
+        },
+        {
+          "name": "image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 26
+        },
+        {
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": 27
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            16
+          ]
+        },
+        {
+          "name": "svg_path",
+          "type": "STRING",
+          "links": [
+            17
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OmniSVG_Sampler"
+      },
+      "widgets_values": [
+        "A red heart shape with smooth curved edges, centered.",
+        384,
+        0.9,
+        50,
+        0.3,
+        1.05,
+        1,
+        215347100,
+        "randomize",
+        "auto",
+        true
+      ]
+    },
+    {
+      "id": 9,
+      "type": "Note",
+      "pos": [
+        21327.788012484292,
+        -870.1336946716411
+      ],
+      "size": [
+        410.9174262864326,
+        203.96530318677787
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Simple black bird: oval body, small round head, pointed triangular beak facing right, triangular tail, two stick legs. Silhouette style.\n\nSimple house: red triangular roof on top, beige rectangular wall, brown rectangular door in center, two small blue square windows. Green ground at bottom.\n\nCute cat: orange round head with two triangular ears, oval orange body, curved tail. Simple cartoon style with black outlines, sitting pose.\n\nSunset beach: orange gradient sky at top, yellow semicircle sun on horizon, dark blue wavy ocean below, tan beach at bottom.\n\nCircular avatar: person with short black hair, round face with two dot eyes and small curved smile, wearing blue collar shirt. Minimal style.\n\nA red heart shape with smooth curved edges, centered."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 13,
+      "type": "OmniSVG_Loader",
+      "pos": [
+        20732.0262477473,
+        -790.1664929971909
+      ],
+      "size": [
+        270,
+        154
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "OmniSVG_Loader",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OmniSVG_Loader"
+      },
+      "widgets_values": [
+        "F:\\test\\ComfyUI\\models\\diffusers\\Qwen2.5-VL-3B-Instruct",
+        "none",
+        "OmniSVG1.1_4B.bin",
+        false,
+        "sdpa"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "Note",
+      "pos": [
+        21048.709597857418,
+        -488.88518531963786
+      ],
+      "size": [
+        246.21410744072273,
+        269.4304477606933
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "\n    text-to-svg-icon:{\n            \"default_temperature\": 0.5,\n            \"default_top_p\": 0.88,\n            \"default_top_k\": 50,\n            \"default_repetition_penalty\": 1.05,\n        }),\n    text-to-svg-illustration: {\n            \"default_temperature\": 0.6,\n            \"default_top_p\": 0.90,\n            \"default_top_k\": 60,\n            \"default_repetition_penalty\": 1.03,\n        }),\n     image-to-svg: {\n            \"default_temperature\": 0.3,\n            \"default_top_p\": 0.90,\n            \"default_top_k\": 50,\n            \"default_repetition_penalty\": 1.05,\n        })"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 11,
+      "type": "Note",
+      "pos": [
+        20744.64372760692,
+        -214.8180305126655
+      ],
+      "size": [
+        249.1138099695563,
+        124.28242913497826
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "确保输入图片是白底图，如果加载的是带通道的PNG或者RGBA ，需要连接mask以避免图像合成出错\n\nEnsure that the input image is a white background image. If loading PNG or RGBA with channels, a mask needs to be connected to avoid image synthesis errors"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 4,
+      "type": "LoadImage",
+      "pos": [
+        20731.261697105692,
+        -580.2463252558607
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            26
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            27
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "16.png",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      16,
+      10,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ],
+    [
+      17,
+      10,
+      1,
+      8,
+      0,
+      "*"
+    ],
+    [
+      23,
+      13,
+      0,
+      10,
+      0,
+      "OmniSVG_Loader"
+    ],
+    [
+      26,
+      4,
+      0,
+      10,
+      1,
+      "IMAGE"
+    ],
+    [
+      27,
+      4,
+      1,
+      10,
+      2,
+      "MASK"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.1167815779426062,
+      "offset": [
+        -20532.2876596285,
+        957.1884582560908
+      ]
+    },
+    "workflowRendererVersion": "LG",
+    "frontendVersion": "1.32.9",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
